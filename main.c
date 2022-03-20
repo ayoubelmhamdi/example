@@ -30,9 +30,10 @@ typedef struct top {
   /* } */
 /* } */
 
+int main(void);
 int main() {
   top *array1 = malloc(MAX * sizeof(top));  // Pointer to MAX structs
-  *array1->tot=11;
+  array1->tot=11;
   /* top **t_array = malloc(100 * sizeof(top *)); */
   /*   for (int i = 0; i < 100; i++) { */
   /*       t_array[i] = malloc(sizeof(struct top)); */
@@ -51,5 +52,6 @@ int main() {
   /* for (i = 0; i < j && top[i]->tot != 0; i++) */
   /*   printf("%d: %s\n", top[i]->tot + 1, top[i]->s); */
 
+  printf("testt: %d",array1->tot);
   return 0;
 }

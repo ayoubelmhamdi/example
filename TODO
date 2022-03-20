@@ -1,0 +1,10 @@
+- fetch 100 files
+- remove duplicate and longue lines foreach line
+- mix files
+- sort files
+- count how lines is duplicate
+- if reaserch is too big and lent
+  - remove lines thant duplicate just few time < 10 or 100
+
+# serach in generate dic/sqlite/table
+  - awk '/$1==word1/ rate=$1 line=$3 {print $line}'
