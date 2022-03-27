@@ -1,16 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAXLINE 100
-#define MAX 100
+#include "util.h"
 
-typedef struct top {
-  int tot;
-  char s[1024];
-} top;
-
-int main(void);
-void count_of_duplicate(top **t_array);
 
 void count_of_duplicate(top **t_array) {
   char s[100][500];
