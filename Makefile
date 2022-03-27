@@ -20,7 +20,7 @@ CFLAGS=-std=c99\
 	-Wdeclaration-after-statement \
 	-Wpointer-sign \
 	-Wtraditional-conversion \
-	-Wtraditional  \
+	#-Wtraditional  \
 
 all: top10
 

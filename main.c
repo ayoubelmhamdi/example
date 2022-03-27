@@ -6,20 +6,14 @@
 
 typedef struct top {
   int tot;
-  char s[100];
+  char s[1024];
 } top;
 
 int main(void);
-void f(top **t_array);
+void count_of_duplicate(top **t_array);
 
-/* void f(top **t_array) { */
-/*   t_array[0] = malloc(sizeof(top)); */
-/*   t_array[0]->tot = 11; */
-/* } */
-
-int main() {
-  char s[100][1000];
-  top **t_array = malloc(100 * sizeof(top *));
+void count_of_duplicate(top **t_array) {
+  char s[100][500];
   int i = 0;
   int j = 0;
   FILE *fp;
@@ -52,5 +46,10 @@ int main() {
   /* f(t_array); */
   for (int k = 0; k <= j; k++)
     printf("%d:%s\n", t_array[k]->tot, t_array[k]->s);
+}
+
+int main() {
+  top **t_array = malloc(100 * sizeof(top *));
+  count_of_duplicate(t_array);
   return 0;
 }
