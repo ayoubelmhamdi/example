@@ -33,23 +33,24 @@ int main() {
   while (!feof(fp)) {
     if (fgets(s[i], (int)sizeof(s[i]), fp)) {
       s[i][strcspn(s[i], "\n")] = 0;
-      printf("next line= %s\n", s[i]);
-      if (i == 0){
+      /* printf("next line= %s\n", s[i]); */
+      if (i == 0) {
         t_array[0]->tot = 1;
-        strcpy(t_array[0]->s,s[0]);
-        }
-      else{
-        if(strcmp(s[i - 1], s[i])==0){
-          t_array[j]->tot++;
-        }
-        else{
-          strcpy(t_array[j++]->s,s[i]);
+        strcpy(t_array[0]->s, s[0]);
+      } else {
+        if (strcmp(s[i - 1], s[i]) == 0) {
+          t_array[j]->tot = t_array[j]->tot + 1;
+        } else {
+          j++;
+          strcpy(t_array[j]->s, s[i]);
+          t_array[j]->tot = 1;
         }
       }
     }
     i++;
   }
   /* f(t_array); */
-  printf("2:%s", s[1]);
+  for (int k = 0; k <= j; k++)
+    printf("%d:%s\n", t_array[k]->tot, t_array[k]->s);
   return 0;
 }
