@@ -9,49 +9,47 @@ typedef struct top {
   char s[100];
 } top;
 
+int main(void);
+void f(top **t_array);
 
-
-/* void f(top *top[]){ */
-/*   printf("%d",top[1]->tot); */
-     /* *top = malloc(sizeof(struct top)); */
-
-  // make a lib to store file in array2d
-  /* char cmd[MAXLINE][MAX] = { */
-  /*     "ps -C nvim",   "ps -C nvim1",  "ps -C nvim1", */
-  /*     "ps -a -o pid", "ps -a -o pid", "pdd", */
-  /* }; */
-  /* int j, i; */
-  /* for (i = 1, j = 0; i < 9; i++) { */
-  /*   if (strcmp(cmd[i], cmd[i - 1]) == 0) { */
-  /*     strcpy(top[j++]->s[i], cmd[i]); */
-  /*   } else { */
-  /*     top[j]->tot++; */
-  /*   } */
-  /* } */
+/* void f(top **t_array) { */
+/*   t_array[0] = malloc(sizeof(top)); */
+/*   t_array[0]->tot = 11; */
 /* } */
 
-int main(void);
 int main() {
-  top *array1 = malloc(MAX * sizeof(top));  // Pointer to MAX structs
-  array1->tot=11;
-  /* top **t_array = malloc(100 * sizeof(top *)); */
-  /*   for (int i = 0; i < 100; i++) { */
-  /*       t_array[i] = malloc(sizeof(struct top)); */
-  /*   } */
-
-  /* top ***p = &t_array; */
-  /* t_array[1]->tot=10; */
-  /* printf("p: %d?\n",(*p)[1]->tot); */
-
-  /* top *top[MAX]; */
-  /* top[1]->tot=1; */
-  /* printf("%d",top[1]->tot); */
-  /* printf("fin"); */
-  /* f(top); */
-  /* int i=0,j=0; */
-  /* for (i = 0; i < j && top[i]->tot != 0; i++) */
-  /*   printf("%d: %s\n", top[i]->tot + 1, top[i]->s); */
-
-  printf("testt: %d",array1->tot);
+  char s[100][1000];
+  top **t_array = malloc(100 * sizeof(top *));
+  int i = 0;
+  int j = 0;
+  FILE *fp;
+  for (int k = 0; k < 100; k++)
+    t_array[k] = malloc(sizeof(top));
+  fp = fopen("txt.txt", "r");
+  if (fp == NULL) {
+    perror("popen");
+    exit(EXIT_FAILURE);
+  }
+  while (!feof(fp)) {
+    if (fgets(s[i], (int)sizeof(s[i]), fp)) {
+      s[i][strcspn(s[i], "\n")] = 0;
+      printf("next line= %s\n", s[i]);
+      if (i == 0){
+        t_array[0]->tot = 1;
+        strcpy(t_array[0]->s,s[0]);
+        }
+      else{
+        if(strcmp(s[i - 1], s[i])==0){
+          t_array[j]->tot++;
+        }
+        else{
+          strcpy(t_array[j++]->s,s[i]);
+        }
+      }
+    }
+    i++;
+  }
+  /* f(t_array); */
+  printf("2:%s", s[1]);
   return 0;
 }
