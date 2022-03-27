@@ -2,7 +2,8 @@
 #- remove duplicate and longue lines foreach line
 #- mix files
 #- sort files
-- count how lines is duplicate
+## count how lines is duplicate
+- count duclicat eline by function `count_of_duplicate`
 - if research is too big and lent
   - remove lines that duplicate just few time < 10 or 100
 
