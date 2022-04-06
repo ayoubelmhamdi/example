@@ -1,13 +1,12 @@
 #!/bin/make
 
 # CFLAGS=-g -Wno-format -Wno-deprecated-declarations -Wno-format-security -lm -lafile
-CFLAGS=-std=c99\
+CFLAGS=\
 	-Werror-implicit-function-declaration \
 	-Wstrict-prototypes \
 	-Wmissing-prototypes \
 	-masm=intel \
 	-Wall \
-	-Wextra \
 	-Wfloat-equal \
 	-Os \
 	-ggdb \
@@ -15,11 +14,18 @@ CFLAGS=-std=c99\
 	-lafile \
 	-Werror \
 	-Wformat=2 \
-	-Wbad-function-cast  -Wmissing-declarations -Wmissing-parameter-type  -Wmissing-prototypes  \
-	-Wnested-externs -Wold-style-declaration  -Wstrict-prototypes \
-	-Wdeclaration-after-statement \
+	-Wbad-function-cast \
+  -Wmissing-declarations \
+  -Wmissing-parameter-type \
+  -Wmissing-prototypes \
+	-Wnested-externs \
+  -Wold-style-declaration \
+  -Wstrict-prototypes \
 	-Wpointer-sign \
 	-Wtraditional-conversion \
+	-std=c99\
+	#-Wdeclaration-after-statement \
+  #-Wextra \
 	#-Wtraditional  \
 
 all: top10

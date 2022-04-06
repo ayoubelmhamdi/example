@@ -5,6 +5,7 @@ typedef struct top {
   char s[1024];
 } top;
 
-int main(void);
+int main(int argc, char *argv[]);
+void getTop10(char *s, top **t_array, top **t_trie);
 void count_of_duplicate(top **t_array);
-
+int strcmpword(char *s, char *word);

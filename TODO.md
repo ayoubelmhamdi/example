@@ -4,10 +4,12 @@
 # sort files
 # count how lines is duplicate
 # count duclicat eline by function `count_of_duplicate`
-- get top 3 for `command`
+# get top 3 for `command`
+- esay for vrai histories
 
 # if research is too big and lent
   - remove lines that duplicate just few time < 10 or 100
+  - by using `t_array[i]>100`
 
 - search in generate dic/sqlite/table
   - awk '/$1==word1/ rate=$1 line=$3 {print $line}'
